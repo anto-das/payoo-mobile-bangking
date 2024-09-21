@@ -1,20 +1,31 @@
 document.getElementById('add-btn').addEventListener('click', function(event){
     event.preventDefault();
-    let addAmount =document.getElementById('amount-money').value;
-    let pinCode =document.getElementById('add-pin').value;
-    if(pinCode ==='1234'){
-        let newAddAmount = parseFloat(addAmount);
-        let balance = document.getElementById('balance').innerText;
-        let strToBalance =parseFloat(balance);
-        let newAmount = strToBalance + newAddAmount;
-        document.getElementById('balance').innerText = newAmount;
+    let addValue = getInputValueById('amount-money');
+    let addPin = getInputValueById('add-pin');
+    if(isNaN(addValue)){
+        alert('please input a valid data');
+        return;
+    }
+    if(addPin === 1234){
+       let accountBalance = balance('balance');
+       let addAmount = accountBalance + addValue;
+       document.getElementById('balance').innerText = addAmount;
+    //    add transaction history
+    let p = document.createElement('p');
+    p.classList.add('bg-green-400');
+    p.innerHTML=`
+    <h3 class="text-2xl font-bold">Cash In</h3>
+   your add money: ${addValue}Tk. Totall-Balance: ${addAmount}Tk.
+    `;
+    let history = document.getElementById('transaction-content');
+    history.appendChild(p);
     }
     else{
-        alert('please enter you valid info')
+        alert('please input your valid pin');
     }
 })
-document.getElementById('add-money-btn').addEventListener('click', function(event){
-    event.preventDefault();
-    document.getElementById('add-form').classList.remove('hidden');
-    document.getElementById('cash-out-form').classList.add('hidden');
-})
+
+document.getElementById('add-money-btn')
+    .addEventListener('click', function(){
+        sectionElementById('add-form');
+    })

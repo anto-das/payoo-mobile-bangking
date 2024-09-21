@@ -24,13 +24,21 @@
         </div> 
         <div class="divider"></div>
         <!-- cashout-cashadd-button -->
-        <div>
-            <button id="add-money-btn" class="btn btn-lg btn-info">Add Money</button>
-        <button id="cash-out-blnc" class="btn btn-lg btn-error">Cash Out Money</button>
+        <div class="grid grid-cols-3 gap-2">
+          <!-- cash in btn -->
+            <button id="add-money-btn" class="btn btn-lg btn-info">Cash In</button>
+            <!-- cash out btn -->
+        <button id="cash-out-blnc" class="btn btn-lg btn-error">Cash Out</button>
+        <!-- transaction history btn -->
+        <button id="transaction-history" class="btn btn-lg btn-warning">Transactions History</button>
+        <!-- transfer money btn -->
+        <button id="transfer-money" class="btn btn-lg btn-outline btn-error">Transfer Money</button>
+        <!-- bouns coupon button -->
+        <button id="get-bonus-btn" class="btn btn-lg btn btn-outline btn-secondary">Get Bonus</button>
         </div>
         <div class="divider"></div>
         <!-- add money form start -->
-        <div id="add-form" class=" card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div id="add-form" class="hidden card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <form class="card-body">
               <div class="form-control">
                 <label class="label">
@@ -69,16 +77,67 @@
 
               </div>
               <div class="form-control mt-6">
-                <button id="cash-out-btn" class="btn btn-primary">Cash Out Money</button>
+                <button id="cash-out-btn" class="btn btn-primary">Withdraw Money</button>
               </div>
             </form>
           </div>
          <!-- cash out money end -->
+          <!-- transaction-history-start -->
+           <div id="trans" class="hidden">
+           <h1>Transaction History</h1>
+           <div id="transaction-content">
+            
+           </div>
+           </div>
+           <!-- transaction-history-end -->
+            <!-- transfer-money-start -->
+            <div id="transfer-money-form" class="hidden card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+              <form class="card-body">
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Amount</span>
+                  </label>
+                  <input id="transfer-money-value" type="text" placeholder="Enter Your Amount" class="input input-bordered" required />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Pin</span>
+                  </label>
+                  <input id="transfer-money-pin" type="password" placeholder="type your pin" class="input input-bordered" required autocomplete="off" />
+  
+                </div>
+                <div class="form-control mt-6">
+                  <button id="transfer-money-btn" class="btn btn-primary">Send Now</button>
+                </div>
+              </form>
+            </div>
+            <!-- transfer-money-end -->
+
+            <!-- get bouns part start-->
+            <div id="bouns-coupon-form" class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+              <form class="card-body">
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Enter Bonus Coupon</span>
+                  </label>
+                  <input id="bouns-coupon" type="password" placeholder="Enter Your Coupon" class="input input-bordered" required autocomplete="off" />
+  
+                </div>
+                <div class="form-control mt-6">
+                  <button id="bouns-coupon-btn" class="btn btn-primary">Get Bonus</button>
+                </div>
+              </form>
+            </div>
+             <!-- get bouns part end -->
           </div>
         </div>
       </div>
    </main>
     <script src="./js/home.js"></script>
     <script src="./js/cash-out.js"></script>
+    <script src="./js/libaray.js"></script>
+    <script src="./js/trans.js"></script>
+    <script src="./js/transferMoney.js"></script>
+    <script src="./js/bonus.js"></script>
 </body>
 </html>
